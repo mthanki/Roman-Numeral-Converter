@@ -59,7 +59,7 @@ namespace Roman_Numeral_Converter
             try
             {
                 var Number = int.Parse(InputTextBox.Text);
-                if(Number < MIN_INPUT_LIMIT || Number > MAX_INPUT_LIMIT)
+                if (Number < MIN_INPUT_LIMIT || Number > MAX_INPUT_LIMIT)
                 {
                     ApplyErrorStyle();
                     ConvertedRomanNumber.Content = ErrorString;

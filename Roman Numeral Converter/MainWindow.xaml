@@ -20,7 +20,7 @@
         <Viewbox Grid.Row="0">
             <TextBox FontFamily="Times New Roman" Margin="7" MaxLength="2" GotFocus="InputTextBox_GotFocus" Name="InputTextBox" MinWidth="25"  FontSize="18" HorizontalContentAlignment="Center"></TextBox>
         </Viewbox>
-            <Label Grid.Row="1" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" MinWidth="80" Padding="0,0,0,0" FontFamily="Times New Roman" Name="ConvertedRomanNumber"></Label>
+        <Label Grid.Row="1" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" MinWidth="80" Padding="0,0,0,0" FontFamily="Times New Roman" Name="ConvertedRomanNumber"></Label>
         <Button Cursor="Hand" FontFamily="Times New Roman" Foreground="Black" Margin="25" Name="ConvertButton" Click="ConvertButton_Click" Grid.Row="2"  FontSize="40">Convert to Roman</Button>
     </Grid>
 </Window>
