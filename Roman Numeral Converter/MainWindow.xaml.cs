@@ -19,26 +19,38 @@ namespace Roman_Numeral_Converter
         const string ROMAN_NINE = "IX";
         const string ROMAN_TEN = "X";
 
+        const int BACKGROUND_BLUR_RADIUS = 20;
+        const int CONVERT_BUTTON_BG_GRADIENT_ANGEL = 45;
+
+        const int MIN_INPUT_LIMIT = 1;
+        const int MAX_INPUT_LIMIT = 10;
+
+        const int DEFAULT_FONT_SIZE = 100;
+        const int ERROR_FONT_SIZE = 40;
+
+        string ErrorString = $"Please enter a valid number between {MIN_INPUT_LIMIT} and {MAX_INPUT_LIMIT}.";
+
         public MainWindow()
         {
             InitializeComponent();
-            ConvertButton.Background = new LinearGradientBrush(Colors.White, Colors.DarkGray, 45);
+            ConvertButton.Background = new LinearGradientBrush(Colors.White, Colors.DarkGray, CONVERT_BUTTON_BG_GRADIENT_ANGEL);
         }
 
         private void InputTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            BackgroundBlur.Radius = 20;
+            BackgroundBlur.Radius = BACKGROUND_BLUR_RADIUS;
         }
 
         void ApplyErrorStyle()
         {
-            ConvertedRomanNumber.FontSize = 40;
+            ConvertedRomanNumber.FontSize = ERROR_FONT_SIZE;
             ConvertedRomanNumber.VerticalContentAlignment = VerticalAlignment.Center;
+            InputTextBox.Text = null;
         }
 
         void ApplyNormalStyle()
         {
-            ConvertedRomanNumber.FontSize = 100;
+            ConvertedRomanNumber.FontSize = DEFAULT_FONT_SIZE;
             ConvertedRomanNumber.VerticalContentAlignment = VerticalAlignment.Top;
         }
 
@@ -47,10 +59,10 @@ namespace Roman_Numeral_Converter
             try
             {
                 var Number = int.Parse(InputTextBox.Text);
-                if(Number < 1 || Number > 10)
+                if(Number < MIN_INPUT_LIMIT || Number > MAX_INPUT_LIMIT)
                 {
                     ApplyErrorStyle();
-                    ConvertedRomanNumber.Content = "Please enter a valid number between 1 and 10.";
+                    ConvertedRomanNumber.Content = ErrorString;
                 }
                 else
                 {
@@ -95,7 +107,7 @@ namespace Roman_Numeral_Converter
             catch
             {
                 ApplyErrorStyle();
-                ConvertedRomanNumber.Content = "Please enter a valid number between 1 and 10.";
+                ConvertedRomanNumber.Content = ErrorString;
             }
         }
     }
